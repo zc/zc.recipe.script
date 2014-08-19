@@ -23,7 +23,7 @@ setup(
     long_description=(
         read('src', 'zc', 'recipe', 'script', 'README.txt')
         + "\n\n" +
-        read('README.txt')
+        read('README.rst')
         ),
     install_requires=['setuptools', 'zc.recipe.egg'],
     extras_require={
