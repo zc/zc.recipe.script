@@ -8,10 +8,11 @@ deployments of the software.
 
 The conventional Unix file hierarchy doesn't really provide a good
 shared place for such scripts; the zc.recipe.deployment:script recipe
-generates these scripts in the deployment's etc-directory.
+generates these scripts in the deployment's bin-directory, but we'd
+rather have the resulting scripts associated with the deployment itself.
 
 The options for the recipe are the same as those for the
-zc.recipe.egg:script recipe, with the addition of a require deployment
+zc.recipe.egg:script recipe, with the addition of a required deployment
 setting.  The etc-directory from the deployment is used instead of the
 buildout's bin-directory.  This allows deployment-specific information
 to be embedded in the script via the initialization setting.
