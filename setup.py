@@ -25,13 +25,20 @@ setup(
         + "\n\n" +
         read('README.rst')
         ),
+    classifiers=[
+        "Framework :: Buildout :: Recipe",
+        ],
     install_requires=['setuptools', 'zc.recipe.egg'],
     extras_require={
         'test': [
             'zc.buildout',
             'zc.recipe.deployment',
             'zope.testing',
-            ]},
+            ],
+        },
+    package_data={
+        'zc.recipe.script': ['*.txt'],
+        },
     entry_points=entry_points,
     package_dir={'': 'src'},
     packages=find_packages('src'),
