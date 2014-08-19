@@ -71,6 +71,12 @@ console_script entry point:
         Creating 'PREFIX/etc/mydep',
         mode 755, user 'USER', group 'GROUP'
     zc.recipe.deployment:
+        Creating 'PREFIX/var/cache/mydep',
+        mode 755, user 'USER', group 'GROUP'
+    zc.recipe.deployment:
+        Creating 'PREFIX/var/lib/mydep',
+        mode 755, user 'USER', group 'GROUP'
+    zc.recipe.deployment:
         Creating 'PREFIX/var/log/mydep',
         mode 755, user 'USER', group 'GROUP'
     zc.recipe.deployment:
@@ -92,7 +98,7 @@ console_script entry point:
     drwxr-xr-x USER GROUP etc/mydep
 
     >>> cat("etc/mydep/myscript") # doctest: +NORMALIZE_WHITESPACE
-    #!/home/fdrake/local/bin/python2.6
+    #!/usr/bin/python
     <BLANKLINE>
     import sys
     sys.path[0:0] = [
@@ -105,4 +111,4 @@ console_script entry point:
     import testmodule
     <BLANKLINE>
     if __name__ == '__main__':
-        testmodule.main()
+        sys.exit(testmodule.main())

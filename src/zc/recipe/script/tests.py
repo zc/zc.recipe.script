@@ -20,6 +20,7 @@ import os
 import pwd
 import re
 import stat
+import sys
 import unittest
 import zc.buildout.testing
 
@@ -61,7 +62,6 @@ def setUp(test):
 
 def test_suite():
     return unittest.TestSuite((
-        #doctest.DocTestSuite(),
         doctest.DocFileSuite(
             'README.txt',
             setUp=setUp, tearDown=zc.buildout.testing.buildoutTearDown,
@@ -80,8 +80,10 @@ def test_suite():
                 # The order doesn't matter after this point
 
                 (re.compile('/.*/sample-buildout'), 'PREFIX'),
+                (re.compile(re.escape(sys.executable)), "/usr/bin/python"),
+                zc.buildout.testing.not_found,
                ]),
-            optionflags = doctest.REPORT_NDIFF,
+            optionflags=doctest.REPORT_NDIFF,
             ),
         ))
 
