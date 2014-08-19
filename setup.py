@@ -13,7 +13,7 @@ def read(*rnames):
 
 setup(
     name=name,
-    version='0',
+    version='1.0.2',
     author='Fred Drake',
     author_email='fred@zope.com',
     description='zc.buildout recipe for scripts in Unix deployments',
