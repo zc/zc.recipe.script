@@ -1,5 +1,5 @@
 import os.path
-from setuptools import setup, find_packages
+import setuptools
 
 name = 'zc.recipe.script'
 
@@ -11,7 +11,7 @@ default = %(name)s:Script
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-setup(
+setuptools.setup(
     name=name,
     version='0',
     author='Fred Drake',
@@ -19,7 +19,7 @@ setup(
     description='zc.buildout recipe for scripts in Unix deployments',
     license='ZVSL',
     keywords='deployment build',
-    url='http://svn.zope.com/repos/main/%s/' % name,
+    url='https://github.com/zc/%s' % name,
     long_description=(
         read('src', 'zc', 'recipe', 'script', 'README.txt')
         + "\n\n" +
@@ -41,7 +41,7 @@ setup(
         },
     entry_points=entry_points,
     package_dir={'': 'src'},
-    packages=find_packages('src'),
+    packages=setuptools.find_packages('src'),
     namespace_packages=['zc', 'zc.recipe'],
     zip_safe=False,
     include_package_data=True,
